@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"menu\": () => (/* binding */ menu)\n/* harmony export */ });\nconst menu = () => {\r\n    const arrow = document.querySelector('.header-contacts__arrow')\r\n    console.log(arrow)\r\n}\n\n//# sourceURL=webpack:///./modules/menu.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"menu\": () => (/* binding */ menu)\n/* harmony export */ });\nconst menu = () => {\r\n    const arrow = document.querySelector('.header-contacts__arrow')\r\n    const numberAccord = document.querySelector('.header-contacts__phone-number-accord')\r\n    const number = numberAccord.querySelector('.header-contacts__phone-number')\r\n\r\n    let isPhone = false\r\n\r\n    const showPhone = () => {\r\n        numberAccord.style.top = '25px'\r\n        number.style.opacity = 1\r\n        arrow.style.transform = 'rotateX(180deg)'\r\n    }\r\n\r\n    const hidePhone = () => {\r\n        numberAccord.style.top = '0px'\r\n        number.style.opacity = 0\r\n        arrow.style.transform = 'rotateX(0)'\r\n    }\r\n\r\n    arrow.addEventListener('click', () => {\r\n        isPhone = !isPhone\r\n        if (isPhone) {\r\n            showPhone()\r\n        } else {\r\n            hidePhone()\r\n        }\r\n    })\r\n}\n\n//# sourceURL=webpack:///./modules/menu.js?");
 
 /***/ })
 

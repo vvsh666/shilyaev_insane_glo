@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_privacy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/privacy */ \"./modules/privacy.js\");\n/* harmony import */ var _modules_showRepairTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/showRepairTypes */ \"./modules/showRepairTypes.js\");\n\r\n\r\n\r\n\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_0__.menu)()\r\n;(0,_modules_showRepairTypes__WEBPACK_IMPORTED_MODULE_2__.showRepairTypes)()\r\n;(0,_modules_privacy__WEBPACK_IMPORTED_MODULE_1__.privacy)()\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_showHidePopups__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/showHidePopups */ \"./modules/showHidePopups.js\");\n/* harmony import */ var _modules_showRepairTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/showRepairTypes */ \"./modules/showRepairTypes.js\");\n\r\n\r\n\r\n\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_0__.menu)()\r\n;(0,_modules_showRepairTypes__WEBPACK_IMPORTED_MODULE_2__.showRepairTypes)()\r\n;(0,_modules_showHidePopups__WEBPACK_IMPORTED_MODULE_1__.showHidePopups)()\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -40,13 +40,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./modules/privacy.js":
-/*!****************************!*\
-  !*** ./modules/privacy.js ***!
-  \****************************/
+/***/ "./modules/showHidePopups.js":
+/*!***********************************!*\
+  !*** ./modules/showHidePopups.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"privacy\": () => (/* binding */ privacy)\n/* harmony export */ });\n/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ \"./modules/helpers.js\");\n\r\n\r\nconst privacy = () => {\r\n    const popup = document.querySelector('.popup-privacy')\r\n\r\n    const showPrivacy = () => {\r\n        ;(0,_helpers__WEBPACK_IMPORTED_MODULE_0__.scrollBody)(false)\r\n        popup.style.opacity = 0\r\n        popup.style.visibility = 'visible'\r\n\r\n        ;(0,_helpers__WEBPACK_IMPORTED_MODULE_0__.animate)({\r\n            duration: 500,\r\n            timing(timeFraction) {\r\n                return timeFraction;\r\n            },\r\n            draw(progress) {\r\n                popup.style.opacity = progress\r\n            }\r\n        })\r\n    }\r\n\r\n    const hidePrivacy = () => {\r\n        ;(0,_helpers__WEBPACK_IMPORTED_MODULE_0__.scrollBody)(true)\r\n        popup.style.opacity = ''\r\n        popup.style.visibility = ''\r\n    }\r\n\r\n    document.addEventListener('click', (e) => {\r\n        if (e.target.closest('.link-privacy')) {\r\n            showPrivacy()\r\n        }\r\n        if (e.target.closest('.popup-privacy>.close')) {\r\n            hidePrivacy()\r\n        }\r\n    })\r\n}\n\n//# sourceURL=webpack:///./modules/privacy.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"showHidePopups\": () => (/* binding */ showHidePopups)\n/* harmony export */ });\n/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ \"./modules/helpers.js\");\n\r\n\r\nconst showHidePopups = (popup) => {\r\n    const popupPrivacy = document.querySelector('.popup-privacy')\r\n    const popupConsultation = document.querySelector('.popup-consultation')\r\n\r\n    const showPopup = (popup) => {\r\n        ;(0,_helpers__WEBPACK_IMPORTED_MODULE_0__.scrollBody)(false)\r\n        popup.style.opacity = 0\r\n        popup.style.visibility = 'visible'\r\n\r\n        ;(0,_helpers__WEBPACK_IMPORTED_MODULE_0__.animate)({\r\n            duration: 500,\r\n            timing(timeFraction) {\r\n                return timeFraction;\r\n            },\r\n            draw(progress) {\r\n                popup.style.opacity = progress\r\n            }\r\n        })\r\n    }\r\n\r\n    const hidePopup = (popup) => {\r\n        ;(0,_helpers__WEBPACK_IMPORTED_MODULE_0__.scrollBody)(true)\r\n        popup.style.opacity = ''\r\n        popup.style.visibility = ''\r\n    }\r\n\r\n    document.addEventListener('click', (e) => {\r\n        if (e.target.closest('.link-privacy')) {\r\n            showPopup(popupPrivacy)\r\n        }\r\n        if (e.target.closest('.popup-privacy>.close')) {\r\n            hidePopup(popupPrivacy)\r\n        }\r\n        if (e.target.closest('.director-avatar button')) {\r\n            showPopup(popupConsultation)\r\n        }\r\n        if (e.target.closest('.popup-consultation .close')) {\r\n            hidePopup(popupConsultation)\r\n        }\r\n    })\r\n}\n\n//# sourceURL=webpack:///./modules/showHidePopups.js?");
 
 /***/ }),
 

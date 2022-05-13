@@ -1,7 +1,7 @@
 import { menu } from "./modules/menu";
-import { privacy } from "./modules/privacy";
+import { showHidePopups } from "./modules/showHidePopups";
 import { showRepairTypes } from "./modules/showRepairTypes";
 
 menu()
 showRepairTypes()
-privacy()
+showHidePopups()

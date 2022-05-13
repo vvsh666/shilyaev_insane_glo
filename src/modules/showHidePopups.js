@@ -1,9 +1,10 @@
 import { animate, scrollBody } from "./helpers"
 
-export const privacy = () => {
-    const popup = document.querySelector('.popup-privacy')
+export const showHidePopups = (popup) => {
+    const popupPrivacy = document.querySelector('.popup-privacy')
+    const popupConsultation = document.querySelector('.popup-consultation')
 
-    const showPrivacy = () => {
+    const showPopup = (popup) => {
         scrollBody(false)
         popup.style.opacity = 0
         popup.style.visibility = 'visible'
@@ -19,7 +20,7 @@ export const privacy = () => {
         })
     }
 
-    const hidePrivacy = () => {
+    const hidePopup = (popup) => {
         scrollBody(true)
         popup.style.opacity = ''
         popup.style.visibility = ''
@@ -27,10 +28,16 @@ export const privacy = () => {
 
     document.addEventListener('click', (e) => {
         if (e.target.closest('.link-privacy')) {
-            showPrivacy()
+            showPopup(popupPrivacy)
         }
         if (e.target.closest('.popup-privacy>.close')) {
-            hidePrivacy()
+            hidePopup(popupPrivacy)
+        }
+        if (e.target.closest('.director-avatar button')) {
+            showPopup(popupConsultation)
+        }
+        if (e.target.closest('.popup-consultation .close')) {
+            hidePopup(popupConsultation)
         }
     })
 }

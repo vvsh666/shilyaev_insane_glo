@@ -73,6 +73,9 @@ export const menu = () => {
         if (e.target.closest('.close-menu')) {
             hideMenu()
         }
+        if (!e.target.closest('.popup-dialog-menu') && !e.target.closest('.menu__icon')) {
+            hideMenu()
+        }
         if (e.target.closest('.menu-link')) {
             if (e.target.closest('.no-overflow')) {
                 e.preventDefault()

@@ -1,4 +1,4 @@
-import { animate } from "./helpers"
+import { animate, scrollBody } from "./helpers"
 
 export const menu = () => {
     const arrow = document.querySelector('.header-contacts__arrow')
@@ -36,6 +36,7 @@ export const menu = () => {
     }
 
     const showPopupRepairTypes = () => {
+        scrollBody(false)
         popupRepairTypes.style.opacity = 0
         popupRepairTypes.style.visibility = 'visible'
 
@@ -51,6 +52,7 @@ export const menu = () => {
     }
 
     const hidePopupRepairTypes = () => {
+        scrollBody(true)
         popupRepairTypes.style.visibility = ''
         popupRepairTypes.style.opacity = ''
     }

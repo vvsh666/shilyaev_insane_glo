@@ -18,3 +18,11 @@ export const animate = ({ timing, draw, duration }) => {
 
     });
 }
+
+export const scrollBody = (check) => {
+    if (check) {
+        document.body.style.overflow = 'auto'
+    } else {
+        document.body.style.overflow = 'hidden'
+    }
+}

@@ -1,9 +1,10 @@
-import { animate } from "./helpers"
+import { animate, scrollBody } from "./helpers"
 
 export const privacy = () => {
     const popup = document.querySelector('.popup-privacy')
 
     const showPrivacy = () => {
+        scrollBody(false)
         popup.style.opacity = 0
         popup.style.visibility = 'visible'
 
@@ -19,6 +20,7 @@ export const privacy = () => {
     }
 
     const hidePrivacy = () => {
+        scrollBody(true)
         popup.style.opacity = ''
         popup.style.visibility = ''
     }

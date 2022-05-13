@@ -1,3 +1,4 @@
+import { accordion } from "./modules/accordion";
 import { menu } from "./modules/menu";
 import { showHidePopups } from "./modules/showHidePopups";
 import { showRepairTypes } from "./modules/showRepairTypes";
@@ -9,3 +10,4 @@ showRepairTypes()
 showHidePopups()
 sliderTransparency()
 sliderReviews()
+accordion()

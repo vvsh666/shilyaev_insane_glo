@@ -96,7 +96,7 @@ export const menu = () => {
         if (e.target.closest('.link-list-repair>a')) {
             showPopupRepairTypes()
         }
-        if (e.target.closest('.popup-repair-types>.close')) {
+        if (e.target.closest('.popup-repair-types .close')) {
             hidePopupRepairTypes()
         }
 

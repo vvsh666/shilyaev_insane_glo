@@ -1113,9 +1113,15 @@ template,
     }
 }
 
+
 .formula-slider {
+    display: flex;
+    align-items: start;
+    width: 80%;
+    margin: 0 auto;
     min-height: 400px;
     margin-top: 102px;
+    transition: 0.4s;
 }
 
 @media (max-width: 575px) {
@@ -1127,10 +1133,14 @@ template,
 
 .formula-slider__slide {
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 20px;
+    margin-right: 20px;
     opacity: 0.4;
     font-size: 18px;
+}
+
+.formula-slider__slide-active {
+    opacity: 1;
 }
 
 .formula-slider__slide:before {

@@ -1,4 +1,6 @@
 import { accordion } from "./modules/accordion";
+import { formula } from "./modules/formula";
+import { formulaMobile } from "./modules/formulaMobile";
 import { menu } from "./modules/menu";
 import { showHidePopups } from "./modules/showHidePopups";
 import { showRepairTypes } from "./modules/showRepairTypes";
@@ -13,3 +15,5 @@ sliderTransparency()
 sliderReviews()
 accordion()
 telMask()
+formula()
+formulaMobile()

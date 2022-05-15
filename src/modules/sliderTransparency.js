@@ -1,5 +1,8 @@
+import { animate, scrollBody } from "./helpers"
+
 export const sliderTransparency = () => {
-    const popupSliderBlock = document.querySelector('.popup-transparency-slider-wrap')
+    const popupTransparency = document.querySelector('.popup-transparency')
+    const popupSliderBlock = popupTransparency.querySelector('.popup-transparency-slider-wrap')
     const popupSlides = popupSliderBlock.querySelectorAll('.popup-transparency-slider__slide')
     const popupCounter = document.getElementById('transparency-popup-counter')
     const popupCounterCurrent = popupCounter.querySelector('.slider-counter-content__current')
@@ -8,10 +11,31 @@ export const sliderTransparency = () => {
     const sliderBlock = document.querySelector('.transparency-slider-wrap')
     const slides = sliderBlock.querySelectorAll('.transparency-item')
 
-    let currentSlide = 0
+    const imgItems = document.querySelectorAll('.transparency-item__img')
 
-    popupCounterCurrent.textContent = currentSlide + 1
-    popupCounterTotal.textContent = slides.length
+    let currentSlide
+
+    const showPopup = (popup) => {
+        scrollBody(false)
+        popup.style.opacity = 0
+        popup.style.visibility = 'visible'
+
+        animate({
+            duration: 500,
+            timing(timeFraction) {
+                return timeFraction;
+            },
+            draw(progress) {
+                popup.style.opacity = progress
+            }
+        })
+    }
+
+    const hidePopup = (popup) => {
+        scrollBody(true)
+        popup.style.opacity = ''
+        popup.style.visibility = ''
+    }
 
     const nextSlide = () => {
         popupSlides[currentSlide].classList.remove('popup-transparency-slider__slide-active')
@@ -50,6 +74,22 @@ export const sliderTransparency = () => {
         if (e.target.closest('#transparency_right') || e.target.closest('#transparency-arrow_right')) {
             nextSlide()
         }
+        if (e.target.closest('.popup-transparency .close')) {
+            hidePopup(popupTransparency)
+        }
+    })
+
+    imgItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            currentSlide = index
+            popupSlides.forEach(slide => {
+                slide.classList.remove('popup-transparency-slider__slide-active')
+            })
+            popupSlides[index].classList.add('popup-transparency-slider__slide-active')
+            popupCounterCurrent.textContent = currentSlide + 1
+            popupCounterTotal.textContent = slides.length
+            showPopup(popupTransparency)
+        })
     })
 
 }

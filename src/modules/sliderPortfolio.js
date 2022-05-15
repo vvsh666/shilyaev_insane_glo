@@ -84,6 +84,7 @@ export const sliderPortfolio = () => {
         currentSlide = 0
         deltaX = 0
         arrowLeft.style = ''
+        arrowRight.style = ''
         slides.forEach(slide => {
             slide.style = ''
         })

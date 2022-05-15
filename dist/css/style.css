@@ -1126,7 +1126,7 @@ template,
 
 @media (max-width: 575px) {
     .formula-slider {
-        min-height: 265px;
+        min-height: 280px;
         margin-top: 52px;
     }
 }
@@ -8017,6 +8017,7 @@ div.wave-block:nth-child(17):after {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 10;
 }
 
 .item-hover span {
@@ -8191,7 +8192,7 @@ div.wave-block:nth-child(17):after {
 
 
 #formula-arrow_left {
-    left: -17px;
+    left: 0px;
 }
 
 @media (max-width: 864px) {
@@ -8215,7 +8216,7 @@ div.wave-block:nth-child(17):after {
 }
 
 #formula-arrow_right {
-    right: -24px;
+    right: 0px;
 }
 
 @media (max-width: 864px) {
@@ -8535,6 +8536,7 @@ strong {
 @media (max-width: 1024px) {
     .wrapper_small {
         max-width: 768px;
+        overflow: hidden;
     }
 }
 

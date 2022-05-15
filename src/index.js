@@ -6,6 +6,7 @@ import { showHidePopups } from "./modules/showHidePopups";
 import { showRepairTypes } from "./modules/showRepairTypes";
 import { sliderPortfolio } from "./modules/sliderPortfolio";
 import { sliderPortfolioMobile } from "./modules/sliderPortfolioMobile";
+import { sliderPortfolioPopup } from "./modules/sliderPortfolioPopup";
 import { sliderReviews } from "./modules/sliderReviews";
 import { sliderTransparency } from "./modules/sliderTransparency";
 import { telMask } from "./modules/telMask";
@@ -21,3 +22,4 @@ formula()
 formulaMobile()
 sliderPortfolio()
 sliderPortfolioMobile()
+sliderPortfolioPopup()

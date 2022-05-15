@@ -2328,6 +2328,7 @@ div.wave-block:nth-child(17):after {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     max-height: 504px;
+    transition: 0.3s;
 }
 
 .portfolio-slider__slide-frame {

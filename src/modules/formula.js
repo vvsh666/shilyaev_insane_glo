@@ -8,9 +8,6 @@ export const formula = () => {
             const popup = e.target.querySelector('.formula-item-popup')
             const popupText = e.target.querySelector('.formula-item-popup-text')
 
-            icon.style.width = '82px'
-            icon.style.height = '82px'
-
             if (popup.getBoundingClientRect().top < 0) {
                 popup.style.transformOrigin = '50% 130%'
                 popup.style.transform = 'rotateX(180deg)'
@@ -30,7 +27,6 @@ export const formula = () => {
             const popup = e.target.querySelector('.formula-item-popup')
             const popupText = e.target.querySelector('.formula-item-popup-text')
 
-            icon.style = ''
             inner.style = ''
             text.style = ''
             popup.style = ''

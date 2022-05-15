@@ -13,6 +13,7 @@ export const sliderPortfolio = () => {
         const sliderRight = slider.getBoundingClientRect().right
         const slideWidth = slides[currentSlide].getBoundingClientRect().width
         const deltaLastSlide = lastSlideRight - sliderRight
+
         if (deltaLastSlide <= 0) {
             return
         } else {
@@ -55,6 +56,7 @@ export const sliderPortfolio = () => {
         const sliderLeft = slider.getBoundingClientRect().left
         const deltaLastSlide = lastSlideRight - sliderRight
         const deltaFirstSlide = sliderLeft - firstSlideLeft
+
         if (deltaFirstSlide > 0) {
             arrowLeft.style.display = 'flex'
         } else {
@@ -70,11 +72,11 @@ export const sliderPortfolio = () => {
     sliderBlock.addEventListener('click', (e) => {
         if (e.target.closest('#portfolio-arrow_right')) {
             nextSlide()
-            showHideArrows()
+            setTimeout(showHideArrows, 250)
         }
         if (e.target.closest('#portfolio-arrow_left')) {
             prevSlide()
-            showHideArrows()
+            setTimeout(showHideArrows, 250)
         }
     })
 

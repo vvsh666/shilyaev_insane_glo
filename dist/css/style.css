@@ -2328,7 +2328,7 @@ div.wave-block:nth-child(17):after {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     max-height: 504px;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .portfolio-slider__slide-frame {
@@ -7073,7 +7073,7 @@ div.wave-block:nth-child(17):after {
     position: absolute;
     top: 50%;
     margin-top: -8px;
-    z-index: 1;
+    z-index: 100;
     cursor: pointer;
 }
 

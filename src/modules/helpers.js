@@ -21,8 +21,10 @@ export const animate = ({ timing, draw, duration }) => {
 
 export const scrollBody = (check) => {
     if (check) {
-        document.body.style.overflow = 'auto'
+        document.body.style = ''
     } else {
+        const scrollWidth = window.innerWidth - document.documentElement.clientWidth
+        document.body.style.paddingRight = scrollWidth + 'px'
         document.body.style.overflow = 'hidden'
     }
 }

@@ -33,6 +33,21 @@ export const showRepairTypes = () => {
 
             showTitle(btns[0].textContent)
             showTable(btns[0].textContent)
+            btns[0].classList.add('popup-repair-types-nav__item-active')
+
+            btns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    tbody.innerHTML = ''
+                    showTitle(btn.textContent)
+                    showTable(btn.textContent)
+
+                    btns.forEach(btn => {
+                        btn.classList.remove('popup-repair-types-nav__item-active')
+                    })
+
+                    e.target.classList.add('popup-repair-types-nav__item-active')
+                })
+            })
         })
     }
 
@@ -59,15 +74,5 @@ export const showRepairTypes = () => {
         })
     }
 
-
     showBtns()
-
-    blockBtns.addEventListener('click', (e) => {
-        if (e.target.classList.contains('popup-repair-types-nav__item')) {
-            tbody.innerHTML = ''
-            showTitle(e.target.textContent)
-            showTable(e.target.textContent)
-        }
-    })
-
 }

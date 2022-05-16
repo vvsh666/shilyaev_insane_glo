@@ -13,7 +13,7 @@ export const sliderTransparency = () => {
 
     const imgItems = document.querySelectorAll('.transparency-item__img')
 
-    let currentSlide
+    let currentSlide = 0
 
     const showPopup = (popup) => {
         scrollBody(false)

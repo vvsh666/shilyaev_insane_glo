@@ -1,6 +1,6 @@
 import { animate, scrollBody } from "./helpers"
 
-export const showHidePopups = (popup) => {
+export const showHidePopups = () => {
     const popupPrivacy = document.querySelector('.popup-privacy')
     const popupConsultation = document.querySelector('.popup-consultation')
 
@@ -33,7 +33,7 @@ export const showHidePopups = (popup) => {
         if (e.target.closest('.popup-privacy>.close')) {
             hidePopup(popupPrivacy)
         }
-        if (e.target.closest('.director-avatar button')) {
+        if (e.target.closest('.director button')) {
             showPopup(popupConsultation)
         }
         if (e.target.closest('.popup-consultation .close')) {

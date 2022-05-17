@@ -1,4 +1,4 @@
-export const showRepairTypes = () => {
+export const showRepairTypesPopup = () => {
     const popupRepairTypes = document.querySelector('.popup-repair-types')
     const blockBtns = popupRepairTypes.querySelector('.nav-list-popup-repair')
     const title = document.getElementById('switch-inner')

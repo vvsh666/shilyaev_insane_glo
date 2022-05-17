@@ -1,4 +1,4 @@
-import { RepairService } from "./repairService"
+import { render } from "./render"
 
 export const getTypes = (repairService) => {
     const select = document.getElementById('typeItem')
@@ -18,6 +18,8 @@ export const getTypes = (repairService) => {
             option.textContent = type
             select.append(option)
         })
+
+        render(data)
 
     })
 }

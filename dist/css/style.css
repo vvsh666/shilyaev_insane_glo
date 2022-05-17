@@ -7280,7 +7280,7 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 1024px) {
     .nav-list-popup-repair {
-        min-width: 3130px;
+        min-width: 2000px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;

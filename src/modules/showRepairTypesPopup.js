@@ -5,11 +5,49 @@ export const showRepairTypesPopup = () => {
     const tbody = popupRepairTypes.querySelector('tbody')
 
     let btns
+    let currentTab = 0
 
     const getData = async () => {
         const response = await fetch('./db/db.json')
         return await response.json()
 
+    }
+
+    const setActiveTab = () => {
+        btns.forEach(btn => {
+            btn.classList.remove('popup-repair-types-nav__item-active')
+        })
+        btns[currentTab].classList.add('popup-repair-types-nav__item-active')
+        tbody.innerHTML = ''
+        showTitle(btns[currentTab].textContent)
+        showTable(btns[currentTab].textContent)
+    }
+
+    const transformTabs = () => {
+        let leftCurrenTab = btns[currentTab].getBoundingClientRect().left
+        let leftBtnsSlider = blockBtns.getBoundingClientRect().left
+        let delta = leftCurrenTab - leftBtnsSlider
+        blockBtns.style.transform = 'translateX(' + -delta + 'px)'
+    }
+
+    const nextTab = () => {
+        currentTab++
+        if (currentTab >= btns.length) {
+            currentTab--
+        }
+
+        transformTabs()
+        setActiveTab()
+    }
+
+    const prevTab = () => {
+        currentTab--
+        if (currentTab < 0) {
+            currentTab++
+        }
+
+        transformTabs()
+        setActiveTab()
     }
 
     const showBtns = () => {
@@ -35,17 +73,14 @@ export const showRepairTypesPopup = () => {
             showTable(btns[0].textContent)
             btns[0].classList.add('popup-repair-types-nav__item-active')
 
-            btns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    tbody.innerHTML = ''
-                    showTitle(btn.textContent)
-                    showTable(btn.textContent)
+            btns.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    currentTab = index
 
-                    btns.forEach(btn => {
-                        btn.classList.remove('popup-repair-types-nav__item-active')
-                    })
-
-                    e.target.classList.add('popup-repair-types-nav__item-active')
+                    setActiveTab()
+                    if (document.documentElement.clientWidth < 1025) {
+                        transformTabs()
+                    }
                 })
             })
         })
@@ -73,6 +108,23 @@ export const showRepairTypesPopup = () => {
             })
         })
     }
+
+    popupRepairTypes.addEventListener('click', (e) => {
+        if (e.target.closest('#nav-arrow-popup-repair_right')) {
+            nextTab()
+        }
+        if (e.target.closest('#nav-arrow-popup-repair_left')) {
+            prevTab()
+        }
+    })
+
+    window.addEventListener('resize', () => {
+        if (document.documentElement.clientWidth < 1025) {
+            transformTabs()
+        } else {
+            blockBtns.style.transform = ''
+        }
+    })
 
     showBtns()
 }

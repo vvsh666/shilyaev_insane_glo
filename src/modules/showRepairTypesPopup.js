@@ -10,7 +10,6 @@ export const showRepairTypesPopup = () => {
     const getData = async () => {
         const response = await fetch('./db/db.json')
         return await response.json()
-
     }
 
     const setActiveTab = () => {
@@ -54,7 +53,7 @@ export const showRepairTypesPopup = () => {
         let types = []
 
         getData().then(data => {
-            data.forEach(item => {
+            data['repairs'].forEach(item => {
                 types.push(item.type)
             })
             types = [... new Set(types)]
@@ -92,7 +91,7 @@ export const showRepairTypesPopup = () => {
 
     const showTable = (type) => {
         getData().then(data => {
-            let repairs = data.filter(item => item.type === type)
+            let repairs = data['repairs'].filter(item => item.type === type)
             repairs.forEach(repair => {
                 const tr = document.createElement('tr')
 

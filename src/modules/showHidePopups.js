@@ -33,7 +33,7 @@ export const showHidePopups = () => {
         if (e.target.closest('.popup-privacy>.close')) {
             hidePopup(popupPrivacy)
         }
-        if (e.target.closest('.director button')) {
+        if (e.target.closest('.button_wide')) {
             showPopup(popupConsultation)
         }
         if (e.target.closest('.popup-consultation .close')) {

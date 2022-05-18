@@ -44,4 +44,14 @@ export class RepairService {
         return await res.json();
     }
 
+    async getSortRepair(sortOptions, type) {
+        let res
+        if (type === 'Все услуги') {
+            res = await fetch(`http://localhost:4545/repairs?_sort=${sortOptions.name}&_order=${sortOptions.value ? 'asc' : 'desc'}`);
+        } else {
+            res = await fetch(`http://localhost:4545/repairs/?type=${type}&_sort=${sortOptions.name}&_order=${sortOptions.value ? 'asc' : 'desc'}`);
+        }
+        return await res.json();
+    }
+
 }

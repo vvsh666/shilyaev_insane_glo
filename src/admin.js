@@ -7,19 +7,21 @@ import { getTypes } from "./modules/admin/getTypes";
 import { removeRepair } from "./modules/admin/removeRepair";
 import { auth } from "./modules/admin/auth";
 import { checkAuth } from "./modules/admin/checkAuth";
+import { sortRepair } from "./modules/admin/sortRepair";
 
 
 const repairService = new RepairService
 const userService = new UserService
 
-if (document.URL === 'http://127.0.0.1:5501/dist/admin/table.html') {
+if (document.URL === `http://${window.location.host}/dist/admin/table.html`) {
     checkAuth(userService)
     getTypes(repairService)
     filterRepairs(repairService)
     addRepairs(repairService)
     editRepairs(repairService)
     removeRepair(repairService)
-} else if (document.URL === 'http://127.0.0.1:5501/dist/admin/') {
+    sortRepair(repairService)
+} else if (document.URL === `http://${window.location.host}/dist/admin/`) {
     auth(userService)
 }
 

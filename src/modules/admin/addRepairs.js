@@ -9,7 +9,7 @@ export const addRepairs = (repairService) => {
     const unitsInput = form.querySelector('#units')
     const costInput = form.querySelector('#cost')
 
-    
+
     btnAddItem.addEventListener('click', () => {
         modal.style.display = 'flex'
     })
@@ -21,19 +21,21 @@ export const addRepairs = (repairService) => {
         }
         if (e.target.closest('.button-ui_firm')) {
             e.preventDefault()
-            const repair = {
-                type: typeInput.value,
-                name: nameInput.value,
-                units: unitsInput.value,
-                cost: costInput.value
-            }
-            repairService.addRepair(repair).then(res => {
-                repairService.filterRepair(repair.type).then(repairs => {
-                    render(repairs)
-                    form.reset()
+            if (form.dataset.method !== 'edit') {
+                const repair = {
+                    type: typeInput.value,
+                    name: nameInput.value,
+                    units: unitsInput.value,
+                    cost: costInput.value
+                }
+                repairService.addRepair(repair).then(res => {
+                    repairService.filterRepair(repair.type).then(repairs => {
+                        render(repairs)
+                        form.reset()
+                    })
+
                 })
-                
-            })
+            }
         }
     })
 

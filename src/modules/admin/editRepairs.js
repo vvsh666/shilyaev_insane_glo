@@ -4,6 +4,7 @@ export const editRepairs = (repairService) => {
     const tbody = document.getElementById('tbody')
     const select = document.getElementById('typeItem')
     const modal = document.getElementById('modal')
+    const modalHeader = modal.querySelector('.modal__header')
     const form = modal.querySelector('form')
     const typeInput = form.querySelector('#type')
     const nameInput = form.querySelector('#name')
@@ -25,6 +26,7 @@ export const editRepairs = (repairService) => {
                 form.dataset.method = 'edit'
                 form.dataset.id = id
 
+                modalHeader.textContent = 'Редактирование услуги'
                 modal.style.display = 'flex'
             })
         }
@@ -34,6 +36,7 @@ export const editRepairs = (repairService) => {
         e.preventDefault()
         if (e.target.closest('.button__close') || e.target.closest('.cancel-button')) {
             modal.style = ''
+            modalHeader.textContent = 'Добавление новой услуги'
             form.removeAttribute('data-method')
             form.removeAttribute('data-id')
         }
@@ -63,6 +66,7 @@ export const editRepairs = (repairService) => {
                     }
                     form.reset()
                     modal.style = ''
+                    modalHeader.textContent = 'Добавление новой услуги'
                     form.removeAttribute('data-method')
                     form.removeAttribute('data-id')
                 })

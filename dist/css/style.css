@@ -8304,7 +8304,7 @@ div.wave-block:nth-child(17):after {
 @media (max-width: 575px) {
     #transparency-arrow_left {
         left: 10px;
-        top: 43%;
+        top: 280px;
     }
 }
 
@@ -8321,7 +8321,7 @@ div.wave-block:nth-child(17):after {
 @media (max-width: 575px) {
     #transparency-arrow_right {
         right: 10px;
-        top: 43%;
+        top: 280px;
     }
 }
 
@@ -9142,5 +9142,14 @@ strong {
 
 .formula-item-popup-toggle::before {
     transform: rotateX(180deg);
+}
 
+.transparency-slider-wrap .slider-arrow {
+    top: 380px;
+}
+
+@media (min-width: 1025px) {
+    .transparency-slider-wrap .slider-arrow {
+        top: 430px;
+    }
 }

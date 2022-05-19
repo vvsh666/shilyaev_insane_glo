@@ -5,6 +5,11 @@ export const sendForm = (idForm) => {
     const form = document.getElementById(idForm)
     const popup = document.querySelector('.popup-thank')
     const close = popup.querySelector('.close-thank')
+    const checkboxBorder = form.querySelector('.checkbox__label')
+    const checkboxInput = form.querySelector('.checkbox__input')
+    const textLabel = form.querySelectorAll('label>span')
+    const textInputs = form.querySelectorAll('input[type=text]')
+    const loader = form.querySelector('.loader')
 
     const showPopup = () => {
         scrollBody(false)
@@ -33,17 +38,25 @@ export const sendForm = (idForm) => {
 
         list.forEach((input) => {
             if (input.name === 'name') {
-                if (input.value === '') {
-                    success = false
+                if (form.classList.contains('feedback-block__form')) {
+                    if (input.value.length < 2) {
+                        textLabel[0].style.color = 'red'
+                        success = false
+                    }
                 }
+
             }
             if (input.name === 'phone') {
                 if (!(/\+7 \([0-9]{3}\) [0-9]{3}\-[0-9]{2}\-[0-9]{2}/.test(input.value))) {
                     success = false
+                    if (form.classList.contains('feedback-block__form')) {
+                        textLabel[1].style.color = 'red'
+                    }
                 }
             }
             if (input.type === 'checkbox') {
                 if (!input.checked) {
+                    checkboxBorder.style.border = '1px solid red'
                     success = false
                 }
             }
@@ -71,16 +84,17 @@ export const sendForm = (idForm) => {
         })
 
         if (validate(formElements)) {
-
+            loader.style.display = 'block'
             sendData(formBody).then(data => {
                 form.reset()
+                loader.style = ''
                 showPopup()
             })
                 .catch(error => {
                     console.log(error.message);
                 })
         } else {
-            alert('Данные не валидны!!!')
+
         }
     }
 
@@ -98,4 +112,27 @@ export const sendForm = (idForm) => {
     }
 
     close.addEventListener('click', hidePopup)
+
+    checkboxInput.addEventListener('click', () => {
+        checkboxBorder.style = ''
+    })
+
+    if (form.classList.contains('feedback-block__form')) {
+        textInputs.forEach(textInput => {
+            textInput.addEventListener('input', (e) => {
+                if (e.target.classList.contains('feedback-block__form-input_name')) {
+                    if (e.target.value.length >= 2) {
+                        textLabel[0].style = ''
+                    }
+                }
+                if (e.target.classList.contains('feedback-block__form-input_phone')) {
+                    if (/\+7 \([0-9]{3}\) [0-9]{3}\-[0-9]{2}\-[0-9]{2}/.test(e.target.value)) {
+                        textLabel[1].style = ''
+                    }
+                }
+            })
+        })
+
+    }
+
 }

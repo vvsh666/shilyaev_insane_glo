@@ -9038,3 +9038,98 @@ strong {
 .slider-dots {
     display: none;
 }
+
+.loader {
+    display: none;
+}
+
+.loader__form {
+    position: absolute;
+    top: 30%;
+}
+
+.loader__form_block {
+    position: absolute;
+    top: -80%;
+    left: 25%;
+}
+
+#floatingCirclesG {
+    position: relative;
+    width: 144px;
+    height: 144px;
+    margin: auto;
+    transform: scale(0.6);
+}
+
+.f_circleG {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.97);
+    height: 26px;
+    width: 26px;
+    border-radius: 14px;
+    animation-name: f_fadeG;
+    animation-duration: 1.04s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+#frotateG_01 {
+    left: 0;
+    top: 59px;
+    animation-delay: 0.39s;
+}
+
+#frotateG_02 {
+    left: 17px;
+    top: 17px;
+    animation-delay: 0.52s;
+}
+
+#frotateG_03 {
+    left: 59px;
+    top: 0;
+    animation-delay: 0.65s;
+}
+
+#frotateG_04 {
+    right: 17px;
+    top: 17px;
+    animation-delay: 0.78s;
+}
+
+#frotateG_05 {
+    right: 0;
+    top: 59px;
+    animation-delay: 0.91s;
+}
+
+#frotateG_06 {
+    right: 17px;
+    bottom: 17px;
+    animation-delay: 1.04s;
+}
+
+#frotateG_07 {
+    left: 59px;
+    bottom: 0;
+    animation-delay: 1.17s;
+}
+
+#frotateG_08 {
+    left: 17px;
+    bottom: 17px;
+    animation-delay: 1.3s;
+}
+
+
+
+@keyframes f_fadeG {
+    0% {
+        background-color: rgb(244, 136, 34);
+    }
+
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}

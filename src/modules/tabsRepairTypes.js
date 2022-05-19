@@ -12,11 +12,18 @@ export const tabsRepairTypes = () => {
     const slideCounterCurrent = slideCounter.querySelector('.slider-counter-content__current')
     const slideCounterTotal = slideCounter.querySelector('.slider-counter-content__total')
 
+    const currentSlideList = []
+
     let slides = sliders[0].querySelectorAll('.repair-types-slider__slide')
 
-
     let currentTab = 0
-    let currentSlide = 0
+    let currentSlide
+
+    for (let i = 0; i < sliders.length; i++) {
+        currentSlideList[i] = 0
+    }
+
+    currentSlide = currentSlideList[currentTab]
 
     slideCounterTotal.textContent = slides.length
 
@@ -31,7 +38,7 @@ export const tabsRepairTypes = () => {
         sliders[currentTab].style.display = 'block'
 
         slides = sliders[currentTab].querySelectorAll('.repair-types-slider__slide')
-        currentSlide = 0
+        currentSlide = currentSlideList[currentTab]
         slides[currentSlide].style.display = 'block'
         slideCounterTotal.textContent = slides.length
         slideCounterCurrent.textContent = currentSlide + 1
@@ -91,6 +98,7 @@ export const tabsRepairTypes = () => {
     }
 
     const nextTab = () => {
+        currentSlideList[currentTab] = currentSlide
         currentTab++
         if (currentTab >= btns.length) {
             currentTab--
@@ -101,6 +109,7 @@ export const tabsRepairTypes = () => {
     }
 
     const prevTab = () => {
+        currentSlideList[currentTab] = currentSlide
         currentTab--
         if (currentTab < 0) {
             currentTab++
@@ -112,11 +121,13 @@ export const tabsRepairTypes = () => {
 
     btns.forEach((btn, index) => {
         btn.addEventListener('click', (e) => {
+            currentSlideList[currentTab] = currentSlide
+            currentTab = index
             slides = sliders[currentTab].querySelectorAll('.repair-types-slider__slide')
             slides.forEach(slide => {
                 slide.style = ''
             })
-            currentTab = index
+
             setActiveTab()
             if (document.documentElement.clientWidth < 1025) {
                 transformTabs()

@@ -6,10 +6,31 @@ export const editRepairs = (repairService) => {
     const modal = document.getElementById('modal')
     const modalHeader = modal.querySelector('.modal__header')
     const form = modal.querySelector('form')
+    const inputs = form.querySelectorAll('input')
     const typeInput = form.querySelector('#type')
     const nameInput = form.querySelector('#name')
     const unitsInput = form.querySelector('#units')
     const costInput = form.querySelector('#cost')
+
+    const validate = () => {
+
+        let success = true
+        inputs.forEach(input => {
+            if (input.id === 'type' || input.id === 'name' || input.id === 'units') {
+                if (input.value === '') {
+                    success = false
+                    input.style.borderBottom = '2px solid red'
+                }
+            }
+            if (input.id === 'cost') {
+                if (input.value === '' || (/\D+/g.test(input.value))) {
+                    success = false
+                    input.style.borderBottom = '2px solid red'
+                }
+            }
+        })
+        return success
+    }
 
     tbody.addEventListener('click', (e) => {
         if (e.target.closest('.action-change')) {
@@ -47,29 +68,32 @@ export const editRepairs = (repairService) => {
             const type = select.value
 
             if (form.dataset.method === 'edit') {
-                const repair = {
-                    type: typeInput.value,
-                    name: nameInput.value,
-                    units: unitsInput.value,
-                    cost: costInput.value
+                if (validate()) {
+                    const repair = {
+                        type: typeInput.value,
+                        name: nameInput.value,
+                        units: unitsInput.value,
+                        cost: costInput.value
+                    }
+
+                    repairService.editRepairItem(id, repair).then(res => {
+                        if (type === 'Все услуги') {
+                            repairService.getRepair().then(data => {
+                                render(data)
+                            })
+                        } else {
+                            repairService.filterRepair(type).then(data => {
+                                render(data)
+                            })
+                        }
+                        form.reset()
+                        modal.style = ''
+                        modalHeader.textContent = 'Добавление новой услуги'
+                        form.removeAttribute('data-method')
+                        form.removeAttribute('data-id')
+                    })
                 }
 
-                repairService.editRepairItem(id, repair).then(res => {
-                    if (type === 'Все услуги') {
-                        repairService.getRepair().then(data => {
-                            render(data)
-                        })
-                    } else {
-                        repairService.filterRepair(type).then(data => {
-                            render(data)
-                        })
-                    }
-                    form.reset()
-                    modal.style = ''
-                    modalHeader.textContent = 'Добавление новой услуги'
-                    form.removeAttribute('data-method')
-                    form.removeAttribute('data-id')
-                })
             }
         }
     })

@@ -8,6 +8,7 @@ import { removeRepair } from "./modules/admin/removeRepair";
 import { auth } from "./modules/admin/auth";
 import { checkAuth } from "./modules/admin/checkAuth";
 import { sortRepair } from "./modules/admin/sortRepair";
+import { searchRepairs } from "./modules/admin/searchRepairs";
 
 
 const repairService = new RepairService
@@ -21,6 +22,7 @@ if (document.URL === `http://${window.location.host}/dist/admin/table.html`) {
     editRepairs(repairService)
     removeRepair(repairService)
     sortRepair(repairService)
+    searchRepairs(repairService)
 } else if (document.URL === `http://${window.location.host}/dist/admin/`) {
     auth(userService)
 }

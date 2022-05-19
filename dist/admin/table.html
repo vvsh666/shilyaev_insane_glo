@@ -16,12 +16,19 @@
 	<main class="main">
 		<div id="container" class="container">
 			<h1 class="title-page">Список услуг</h1>
-			<label>
-				<select name="typeItem" id="typeItem">
-					<option value="Все услуги">Все услуги</option>
-				</select>
-				выбрать тип
-			</label>
+			<div class="select-search__wrapper">
+				<label>
+					<select name="typeItem" id="typeItem">
+						<option value="Все услуги">Все услуги</option>
+					</select>
+					выбрать тип
+				</label>
+				<label>
+					Поиск по виду работ
+					<input type="text" id="search">
+				</label>
+			</div>
+
 			<div class="table__wrapper">
 				<table id="table" class="table">
 					<thead>

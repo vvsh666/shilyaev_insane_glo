@@ -54,4 +54,14 @@ export class RepairService {
         return await res.json();
     }
 
+    async getSearchRepair(str, type) {
+        let res
+        if (type === 'Все услуги') {
+            res = await fetch(`http://localhost:4545/repairs?name_like=${str}`);
+        } else {
+            res = await fetch(`http://localhost:4545/repairs/?type=${type}&name_like=${str}`);
+        }
+        return await res.json();
+    }
+
 }
